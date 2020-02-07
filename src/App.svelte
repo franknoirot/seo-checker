@@ -4,7 +4,8 @@
 	let keywords = []
 	let keywordsMatchCount = []
 
-	$: wordCount = postText.split(' ').length
+	const wordLength = 6
+	$: wordCount = postText.split(' ').reduce((acc, word) => acc + ((word.length < wordLength) ? 1 : Math.floor(word.length / wordLength)), 0)
 	$: postHTML = parseHTML(postText, keywords)
 
 	function parseHTML(htmlString, keywordArr) {
@@ -12,6 +13,7 @@
 		keywordsMatchCount = keywords.map(x => 0)
 
 		for (let i=0; i<keywordArr.length; i++) {
+			if (!keywordArr[i]) continue
 			if (keywordArr[i].length > 0) {
 				htmlString = highlightKeyword(htmlString, keywordArr[i], i)
 			}
@@ -26,8 +28,8 @@
 	}
 
 	function highlightKeyword(htmlString, keyword, index) {
-		console.log('keyword = ', keyword)
-		const rgx = new RegExp(keyword, 'gi')
+		const keywordReplaced = keyword.replace(/\s+/gi, '[^\\w]+')
+		const rgx = new RegExp(keywordReplaced, 'gi')
 		return htmlString.replace(rgx, function(match) {
 			keywordsMatchCount[index]++
 			keywordsMatchCount = [...keywordsMatchCount]
