@@ -30,3 +30,15 @@ jobs:
           dst_path: /_site/work/seo-checker
           dst_owner: franknoirot
           dst_repo_name: franknoirot.co
+
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "SEO Checker"
+        git commit -m "Portfolio push" -a
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        repository: franknoirot.co
+        github_token: ${{ secrets.PERSONAL_TOKEN }}
