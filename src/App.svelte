@@ -1,4 +1,5 @@
 <script>
+	// why doesn't this watch my package.json?
 	import { onMount } from 'svelte'
 	let postText = ''
 	let keywords = []
