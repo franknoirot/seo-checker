@@ -27,7 +27,8 @@ jobs:
       with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           src_path: public
-          dst_path: _site/work/seo-checker
+          dst_path: work/seo-checker
+          clean: true
           dst_owner: franknoirot
           dst_repo_name: franknoirot.co
   
