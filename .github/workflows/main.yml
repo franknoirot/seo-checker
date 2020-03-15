@@ -33,7 +33,7 @@ jobs:
           dst_repo_name: franknoirot.co
     
     - name: Checkout p2
-        uses: actions/checkout@v2
+      uses: actions/checkout@v2
     
     - name: Copycat Config
       uses: andstor/copycat-action@v3.0.0
