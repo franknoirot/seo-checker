@@ -26,7 +26,7 @@ jobs:
       uses: andstor/copycat-action@v3.0.0
       with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          src_path: public
+          src_path: public/
           dst_path: work/seo-checker
           clean: true
           dst_owner: franknoirot
