@@ -12,7 +12,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  config:
+  directory:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -32,7 +32,7 @@ jobs:
           dst_owner: franknoirot
           dst_repo_name: franknoirot.co
   
-  directory:
+  config:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
