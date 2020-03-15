@@ -22,24 +22,21 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout p1
       uses: actions/checkout@v2
-      with:
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
     
-    - name: Copycat Directory
-      uses: andstor/copycat-action@v3.0.0
-      with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          src_path: /public
-          dst_path: /_site/work/seo-checker
-          dst_owner: franknoirot
-          dst_repo_name: franknoirot.co
+    # - name: Copycat Directory
+    #   uses: andstor/copycat-action@v3.0.0
+    #   with:
+    #       personal_token: ${{ secrets.PERSONAL_TOKEN }}
+    #       src_path: public
+    #       dst_path: _site/work/seo-checker
+    #       dst_owner: franknoirot
+    #       dst_repo_name: franknoirot.co
 
     - name: Copycat Config
       uses: andstor/copycat-action@v3.0.0
       with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          src_path: /portfolio-config.json
-          dst_path: /_data/work/seoChecker.json
+          src_path: portfolio-config.json
+          dst_path: _data/work/seoChecker.json
           dst_owner: franknoirot
           dst_repo_name: franknoirot.co
