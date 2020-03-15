@@ -23,11 +23,20 @@ jobs:
     - name: Local Checkout
       uses: actions/checkout@v2
     
-    - name: Copycat Action
+    - name: Copycat Directory
       uses: andstor/copycat-action@v3.0.0
       with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           src_path: /public
           dst_path: /_site/work/seo-checker
+          dst_owner: franknoirot
+          dst_repo_name: franknoirot.co
+          
+    - name: Copycat Config
+      uses: andstor/copycat-action@v3.0.0
+      with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          src_path: /portfolio-config.json
+          dst_path: /_data/work/seo-checker.json
           dst_owner: franknoirot
           dst_repo_name: franknoirot.co
