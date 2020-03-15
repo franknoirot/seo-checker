@@ -20,7 +20,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: Local Checkout
+    - name: Checkout p1
       uses: actions/checkout@v2
     
     - name: Copycat Directory
@@ -31,7 +31,10 @@ jobs:
           dst_path: _site/work/seo-checker
           dst_owner: franknoirot
           dst_repo_name: franknoirot.co
-          
+    
+    - name: Checkout p2
+        uses: actions/checkout@v2
+    
     - name: Copycat Config
       uses: andstor/copycat-action@v3.0.0
       with:
